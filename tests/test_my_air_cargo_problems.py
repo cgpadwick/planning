@@ -1,7 +1,7 @@
 import os
 import sys
-parent = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.join(os.path.dirname(parent), "aimacode"))
+#parent = os.path.dirname(os.path.realpath(__file__))
+#sys.path.append(os.path.join(os.path.dirname(parent), "aimacode"))
 from aimacode.planning import Action
 from aimacode.utils import expr
 from aimacode.search import Node
@@ -66,9 +66,9 @@ class TestAirCargoMethods(unittest.TestCase):
 
     def test_AC_actions(self):
         # to see list of possible actions, uncomment below
-        # print("\npossible actions:")
-        # for action in self.p1.actions(self.p1.initial):
-        #     print("{}{}".format(action.name, action.args))
+        print("\npossible actions:")
+        for action in self.p1.actions(self.p1.initial):
+            print("{}{}".format(action.name, action.args))
         self.assertEqual(len(self.p1.actions(self.p1.initial)), 4)
 
     def test_AC_result(self):
