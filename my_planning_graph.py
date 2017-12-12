@@ -549,4 +549,30 @@ class PlanningGraph():
         level_sum = 0
         # TODO implement
         # for each goal in the problem, determine the level cost, then add them together
+
+        #print('\n\ngoals are:')
+        #print(self.problem.goal)
+
+
+        num_s_levels = len(self.s_levels)
+        #for ll in range(num_s_levels):
+        #    print('\n\nlevel %d' % ll)
+        #    for node in self.s_levels[ll]:
+        #        print(node.symbol, node.is_pos)
+
+        for goal in self.problem.goal:
+            search = True
+            for level in range(num_s_levels):
+                if search:
+                    level_sum += level
+                else:
+                    break
+                node_list = self.s_levels[level]
+                # Search for a node that matches the goal.
+                if search:
+                    for node in node_list:
+                        if node.symbol == goal and node.is_pos:
+                            search = False
+                            break
+
         return level_sum
