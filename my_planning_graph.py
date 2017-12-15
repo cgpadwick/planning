@@ -347,7 +347,6 @@ class PlanningGraph():
                 node_s_literal.parents.add(node_a_action)
                 node_a_action.children.add(node_s_literal)
 
-
     def update_a_mutex(self, nodeset):
         """ Determine and update sibling mutual exclusion for A-level nodes
 
@@ -550,16 +549,7 @@ class PlanningGraph():
         # TODO implement
         # for each goal in the problem, determine the level cost, then add them together
 
-        #print('\n\ngoals are:')
-        #print(self.problem.goal)
-
-
         num_s_levels = len(self.s_levels)
-        #for ll in range(num_s_levels):
-        #    print('\n\nlevel %d' % ll)
-        #    for node in self.s_levels[ll]:
-        #        print(node.symbol, node.is_pos)
-
         for goal in self.problem.goal:
             search = True
             for level in range(num_s_levels):

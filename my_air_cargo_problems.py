@@ -165,9 +165,6 @@ class AirCargoProblem(Problem):
         :return: resulting state after action
         """
         # TODO implement
-        #new_state = FluentState([], [])
-        #return encode_state(new_state, self.state_map)
-
         new_state = FluentState([], [])
         old_state = decode_state(state, self.state_map)
         for fluent in old_state.pos:
@@ -223,45 +220,10 @@ class AirCargoProblem(Problem):
         """
         # TODO implement (see Russell-Norvig Ed-3 10.2.3  or Russell-Norvig Ed-2 11.2)
         count = 0
-
         fs = decode_state(node.state, self.state_map)
-
-        #print('goal is:')
-        #print(self.goal)
-        #print('fs.pos is:')
-        #print(fs.pos)
-
         for goal in self.goal:
             if goal not in fs.pos:
                 count += 1
-
-
-        # print(len(self.actions(node.state)))
-
-        # for action in self.actions(node.state):
-        #     action_copy = copy.deepcopy(action)
-        #     action_copy.precond_pos = []
-        #     action_copy.precond_neg = []
-        #     current_state = self.result(current_state, action_copy)
-        #     count += 1
-        #     if self.goal_test(current_state):
-        #         break
-
-        # while 1:
-        #     actions_at_current_state = self.actions(current_state)
-        #     print(actions_at_current_state)
-        #     if len(actions_at_current_state) == 0:
-        #         raise ValueError('no more actions can be taken')
-        #
-        #     # Remove the action preconditions.  Build a copy of the action so we don't end up
-        #     # modifying the underlying action.
-        #     action_copy = copy.deepcopy(actions_at_current_state[0])
-        #     action_copy.precond_pos = []
-        #     action_copy.precond_neg = []
-        #     current_state = self.result(current_state, action_copy)
-        #     count += 1
-        #     if self.goal_test(current_state):
-        #         break
 
         return count
 
